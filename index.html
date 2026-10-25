@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fffaf8">
+  <title>SkillBridge Japan | Knowledge Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a href="#" class="brand">
+        <span class="brand-mark">S</span>
+        <span>SkillBridge<span class="brand-japan"> Japan</span>
+          <small>KNOWLEDGE HUB</small>
+        </span>
+      </a>
+
+      <p class="nav-label" data-i18n="workspace">WORKSPACE</p>
+      <nav class="navigation">
+        <button class="nav-link active" id="dashboardNav">
+          <span>▦</span><span data-i18n="dashboard">Dashboard</span>
+        </button>
+        <button class="nav-link" id="libraryNav">
+          <span>▤</span><span data-i18n="library">Knowledge Library</span>
+        </button>
+        <button class="nav-link" id="addNav">
+          <span>＋</span><span data-i18n="addArticle">Add Article</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="japan-note">
+          <span class="japan-dot"></span>
+          <p data-i18n="sidebarNote">Knowledge shared is knowledge preserved.</p>
+        </div>
+        <p class="sidebar-footer">SkillBridge Japan · v1.1</p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" data-i18n="eyebrow">EMPLOYEE KNOWLEDGE PLATFORM</p>
+          <h1 id="pageTitle" data-i18n="dashboard">Dashboard</h1>
+        </div>
+        <div class="topbar-actions">
+          <label class="language-label" for="languageSelect">文 / A</label>
+          <select id="languageSelect" aria-label="Select language">
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+          </select>
+          <div class="avatar" title="SkillBridge">S</div>
+        </div>
+      </header>
+
+      <section class="welcome-panel">
+        <div class="welcome-copy">
+          <p class="welcome-kicker" data-i18n="welcomeKicker">BETTER TOGETHER</p>
+          <h2 data-i18n="welcomeTitle">Knowledge makes every team stronger.</h2>
+          <p data-i18n="welcomeText">
+            Keep valuable experience accessible. Help your team find answers,
+            share solutions, and learn from one another.
+          </p>
+          <button class="primary-button" id="welcomeAddBtn">
+            <span>＋</span> <span data-i18n="shareKnowledge">Share knowledge</span>
+          </button>
+        </div>
+        <div class="welcome-art" aria-hidden="true">
+          <div class="art-circle"></div>
+          <div class="art-card">
+            <span class="art-symbol">知</span>
+            <span data-i18n="knowledgeMatters">Knowledge matters</span>
+            <small>知識をつなぐ</small>
+          </div>
+          <span class="art-sun"></span>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Dashboard statistics">
+        <article class="stat-card">
+          <div class="stat-top">
+            <span data-i18n="totalArticles">Total articles</span>
+            <span class="stat-icon icon-red">▤</span>
+          </div>
+          <p class="stat-number" id="totalArticles">0</p>
+          <p class="stat-description" data-i18n="articlesStored">Knowledge entries saved</p>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top">
+            <span data-i18n="equipmentCovered">Equipment covered</span>
+            <span class="stat-icon icon-sand">⚙</span>
+          </div>
+          <p class="stat-number" id="equipmentCount">0</p>
+          <p class="stat-description" data-i18n="uniqueEquipment">Unique equipment names</p>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top">
+            <span data-i18n="contributors">Contributors</span>
+            <span class="stat-icon icon-green">♙</span>
+          </div>
+          <p class="stat-number" id="contributorCount">0</p>
+          <p class="stat-description" data-i18n="knowledgeSharers">People sharing knowledge</p>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel library-panel" id="librarySection">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow" data-i18n="knowledgeBase">KNOWLEDGE BASE</p>
+              <h2 data-i18n="libraryTitle">Knowledge library</h2>
+            </div>
+            <button class="text-button" id="viewAllBtn">
+              <span data-i18n="viewAll">View all</span> →
+            </button>
+          </div>
+
+          <label class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input id="search" type="search"
+              data-i18n-placeholder="searchPlaceholder"
+              placeholder="Search titles, equipment, or error codes...">
+          </label>
+
+          <div class="filter-row">
+            <span id="resultCount" class="result-count">0 articles</span>
+            <button id="clearSearchBtn" class="text-button" data-i18n="clearSearch">
+              Clear search
+            </button>
+          </div>
+
+          <div id="knowledgeList" class="knowledge-list" aria-live="polite"></div>
+        </div>
+
+        <aside class="right-column">
+          <section class="panel quick-panel">
+            <p class="eyebrow" data-i18n="quickActions">QUICK ACTIONS</p>
+            <h2 data-i18n="quickTitle">Make knowledge useful.</h2>
+            <p class="muted" data-i18n="quickText">
+              Document a useful solution so the next person can find it.
+            </p>
+            <button class="action-row" id="quickAddBtn">
+              <span class="action-icon">＋</span>
+              <span>
+                <strong data-i18n="newArticle">New article</strong>
+                <small data-i18n="newArticleText">Document a solution</small>
+              </span>
+              <span class="action-arrow">→</span>
+            </button>
+            <button class="action-row" id="quickLibraryBtn">
+              <span class="action-icon action-icon-sand">⌕</span>
+              <span>
+                <strong data-i18n="findAnswer">Find an answer</strong>
+                <small data-i18n="findAnswerText">Search saved knowledge</small>
+              </span>
+              <span class="action-arrow">→</span>
+            </button>
+          </section>
+
+          <section class="tip-panel">
+            <span class="tip-icon">灯</span>
+            <p class="eyebrow" data-i18n="dailyThought">A THOUGHT TO KEEP</p>
+            <h3 data-i18n="tipTitle">Small lessons. Lasting impact.</h3>
+            <p data-i18n="tipText">
+              A clear explanation today can save someone hours tomorrow.
+            </p>
+          </section>
+        </aside>
+      </section>
+
+      <section class="panel form-panel" id="addSection" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" data-i18n="contribute">CONTRIBUTE</p>
+            <h2 data-i18n="formTitle">Add knowledge article</h2>
+            <p class="muted" data-i18n="formIntro">
+              Capture a practical solution your team can reuse.
+            </p>
+          </div>
+          <button class="secondary-button" id="cancelAddBtn" data-i18n="cancel">
+            Cancel
+          </button>
+        </div>
+
+        <form id="knowledgeForm">
+          <div class="form-grid">
+            <label class="field full-width">
+              <span data-i18n="fieldTitle">Problem title *</span>
+              <input id="title" maxlength="200" required
+                data-i18n-placeholder="titlePlaceholder"
+                placeholder="e.g. Machine overheating">
+            </label>
+
+            <label class="field">
+              <span data-i18n="fieldEquipment">Equipment name</span>
+              <input id="equipment" maxlength="100"
+                data-i18n-placeholder="equipmentPlaceholder"
+                placeholder="e.g. Machine A">
+            </label>
+
+            <label class="field">
+              <span data-i18n="fieldError">Error code</span>
+              <input id="errorCode" maxlength="50"
+                placeholder="e.g. E101">
+            </label>
+
+            <label class="field full-width">
+              <span data-i18n="fieldSolution">Solution / procedure *</span>
+              <textarea id="solution" maxlength="5000" required
+                data-i18n-placeholder="solutionPlaceholder"
+                placeholder="Describe the verified steps to resolve the issue..."></textarea>
+            </label>
+
+            <label class="field full-width">
+              <span data-i18n="fieldAuthor">Employee name *</span>
+              <input id="author" maxlength="100" required
+                data-i18n-placeholder="authorPlaceholder"
+                placeholder="Enter contributor name">
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <p class="muted" data-i18n="localNotice">
+              Saved in this browser only. Not shared with other employees.
+            </p>
+            <button class="primary-button" type="submit">
+              <span>＋</span><span data-i18n="saveArticle">Save article</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <footer class="page-footer">
+        <span>SkillBridge Japan</span>
+        <span data-i18n="footerText">Preserving knowledge for a better tomorrow.</span>
+      </footer>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="script.js"></script>
+</body>
+</html>
+
